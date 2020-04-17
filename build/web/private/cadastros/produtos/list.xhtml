@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <ui:composition template="/private/template/template.xhtml">
+
+        <ui:define name="conteudo">
+            <p:panel id="panel" header="Produtos" style="margin: 20px">
+                
+                <p:dataTable id="dataTable" value="Lista de Categorias" var="produto" emptyMessage="Nenhum produto Cadastrado !" 
+                             style="margin: 10px;" paginator="true" paginatorPosition="bottom" rows="10">
+                    
+                    <p:column headerText="Código do Produto" width="40"> 
+                        <div align="center">
+                            <h:outputText value="MP3010"/>
+                        </div>
+                    </p:column>
+
+                    <p:column headerText="Descrição do Produto" width="300"> 
+                        <h:outputText value="Arroz"/>
+                    </p:column>
+                    
+                    <p:column headerText="Quantidade" width="40"> 
+                        <div align="center">
+                            <h:outputText value="10"/>
+                        </div>
+                    </p:column>
+                    
+                    <p:column headerText="Unidade" width="30"> 
+                        <div align="center">
+                            <h:outputText value="UN"/>
+                        </div>
+                    </p:column>
+                    
+                    <p:column headerText="Data de Validade" width="40"> 
+                        <div align="center">
+                            <h:outputText value="18/08/1998"> 
+                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                            </h:outputText>
+                        </div>
+                    </p:column>
+                    
+                    <p:column headerText="Valor" width="40"> 
+                        <div align="center">
+                            <h:outputText value="R$">
+                                <f:convertNumber minFractionDigits="2"/>
+                            </h:outputText>
+                        </div>
+                    </p:column>
+                    
+                    <p:column headerText="Editar" width="30" style="text-align: center">
+                        <p:commandButton action="#{servicoMB.buscaDados(servico)}" icon="ui-icon-pencil" title="Editar"/>
+                    </p:column>
+
+                    <p:column headerText="Excluir" width="30" style="text-align: center">
+                        <p:commandButton action="#{servicoMB.excluir(servico)}" icon="ui-icon-trash" title="Excluir"
+                                         onclick="if (!confirm('Confirma a exclusão ?')) return false" update=":form:growl"/>  
+                    </p:column>
+                    
+                    <p:column headerText="Carrinho de Compras" width="50" style="text-align: center">
+                        <p:commandButton action="#{servicoMB.buscaDados(servico)}" icon="ui-icon-circle-plus" title="Adicionar Ao Carrinho"/>
+                    </p:column>
+
+                </p:dataTable>
+                
+                <div align="center">  
+                    <p:commandButton action="new.xhtml" value="Novo" icon="ui-icon-circle-plus"/>
+                </div>
+                
+            </p:panel>
+
+            
+        </ui:define>
+
+    </ui:composition>
+</html>
+
