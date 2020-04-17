@@ -13,24 +13,24 @@
                 <div class="ui-g">
                     <div class="ui-g-1">
                         <label>Código</label>
-                        <p:inputText id="codProd" value="#{categoriaMB.categoria.descricao}" style="width: 95%;"
+                        <p:inputText id="codProd" value="#{produtosMB.prod.codigoProduto}" style="width: 95%;"
                                      required="true" requiredMessage="Código do Produto é obrigatório !"/>
                     </div>
                     
                     <div class="ui-g-4">
                         <label>Descrição</label>
-                        <p:inputText id="descProd" value="#{categoriaMB.categoria.descricao}" style="width: 95%;"
+                        <p:inputText id="descProd" value="#{produtosMB.prod.descricao}" style="width: 95%;"
                                      required="true" requiredMessage="Descrição do Produto é obrigatório !"/>
                     </div>
                     
                     <div class="ui-g-1">
                         <label>Quantidade</label>
-                        <p:inputText id="quantidade" value="#{categoriaMB.categoria.descricao}" style="width: 95%;"/>
+                        <p:inputText id="quantidade" value="#{produtosMB.prod.quantidade}" style="width: 95%;"/>
                     </div>
                     
                     <div class="ui-g-2">
                         <label>Unidade</label>
-                        <p:selectOneMenu id="unidade" value="" style="width: 95%"
+                        <p:selectOneMenu id="unidade" value="#{produtosMB.prod.unidadeMedida}" style="width: 95%"
                                          required="true" requiredMessage="Unidade é obrigatório">
 
                             <f:selectItem itemLabel="" itemValue="" />
@@ -44,20 +44,20 @@
                     
                     <div class="ui-g-2">
                         <label>Data Validade</label>
-                        <p:calendar id="dataValidade" value="#{usuarioMB.usuario.dataNascimento}" pattern="dd/MM/yyyy" locale="pt" 
+                        <p:calendar id="dataValidade" value="#{produtosMB.prod.dataValidade}" pattern="dd/MM/yyyy" locale="pt" 
                                     mask="99/99/9999" style="width: 95%;"/>
                     </div>
                     
                     <div class="ui-g-2">
                         <label>Valor</label>
-                        <p:inputText id="valor" value="#{servicoMB.servico.preco}" style="width: 95%;" 
+                        <p:inputText id="valor" value="#{produtosMB.prod.preco}" style="width: 95%;" 
                                      required="true" requiredMessage="Valor é Obrigatório"/>
                     </div>
                     
                 </div>
 
                 <div align="center">  
-                    <p:commandButton action="list.xhtml" value="Salvar" update="growl"/>
+                    <p:commandButton action="#{produtosMB.salvar()}" value="Salvar" update="growl"/>
                     <p:commandButton action="list.xhtml" value="Cancelar" immediate="true" />  
                 </div>
 

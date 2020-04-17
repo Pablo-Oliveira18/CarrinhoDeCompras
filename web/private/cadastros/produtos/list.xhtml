@@ -11,34 +11,34 @@
         <ui:define name="conteudo">
             <p:panel id="panel" header="Produtos" style="margin: 20px">
                 
-                <p:dataTable id="dataTable" value="Lista de Categorias" var="produto" emptyMessage="Nenhum produto Cadastrado !" 
+                <p:dataTable id="dataTable" value="#{produtosMB.produtos}" var="produto" emptyMessage="Nenhum produto Cadastrado !" 
                              style="margin: 10px;" paginator="true" paginatorPosition="bottom" rows="10">
                     
                     <p:column headerText="Código do Produto" width="40"> 
                         <div align="center">
-                            <h:outputText value="MP3010"/>
+                            <h:outputText value="#{produto.codigoProduto}"/>
                         </div>
                     </p:column>
 
                     <p:column headerText="Descrição do Produto" width="300"> 
-                        <h:outputText value="Arroz"/>
+                        <h:outputText value="#{produto.descricao}"/>
                     </p:column>
                     
                     <p:column headerText="Quantidade" width="40"> 
                         <div align="center">
-                            <h:outputText value="10"/>
+                            <h:outputText value="#{produto.quantidade}"/>
                         </div>
                     </p:column>
                     
                     <p:column headerText="Unidade" width="30"> 
                         <div align="center">
-                            <h:outputText value="UN"/>
+                            <h:outputText value="#{produto.unidadeMedida}"/>
                         </div>
                     </p:column>
                     
                     <p:column headerText="Data de Validade" width="40"> 
                         <div align="center">
-                            <h:outputText value="18/08/1998"> 
+                            <h:outputText value="#{produto.dataValidade}"> 
                                 <f:convertDateTime pattern="dd/MM/yyyy"/>
                             </h:outputText>
                         </div>
@@ -46,14 +46,14 @@
                     
                     <p:column headerText="Valor" width="40"> 
                         <div align="center">
-                            <h:outputText value="R$">
+                            <h:outputText value="#{produto.preco}">
                                 <f:convertNumber minFractionDigits="2"/>
                             </h:outputText>
                         </div>
                     </p:column>
                     
                     <p:column headerText="Editar" width="30" style="text-align: center">
-                        <p:commandButton action="#{servicoMB.buscaDados(servico)}" icon="ui-icon-pencil" title="Editar"/>
+                        <p:commandButton action="#{produtosMB.buscaDados(produto)}" icon="ui-icon-pencil" title="Editar"/>
                     </p:column>
 
                     <p:column headerText="Excluir" width="30" style="text-align: center">
@@ -68,7 +68,7 @@
                 </p:dataTable>
                 
                 <div align="center">  
-                    <p:commandButton action="new.xhtml" value="Novo" icon="ui-icon-circle-plus"/>
+                    <p:commandButton action="#{produtosMB.novo()}" value="Novo" icon="ui-icon-circle-plus"/>
                 </div>
                 
             </p:panel>

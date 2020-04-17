@@ -2,8 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:composition template="/private/template/template.xhtml">
 
@@ -16,18 +16,18 @@
                         <p:inputText id="codProd" value="#{produtosMB.prod.codigoProduto}" style="width: 95%;"
                                      required="true" requiredMessage="Código do Produto é obrigatório !"/>
                     </div>
-                    
+
                     <div class="ui-g-4">
                         <label>Descrição</label>
                         <p:inputText id="descProd" value="#{produtosMB.prod.descricao}" style="width: 95%;"
                                      required="true" requiredMessage="Descrição do Produto é obrigatório !"/>
                     </div>
-                    
+
                     <div class="ui-g-1">
                         <label>Quantidade</label>
                         <p:inputText id="quantidade" value="#{produtosMB.prod.quantidade}" style="width: 95%;"/>
                     </div>
-                    
+
                     <div class="ui-g-2">
                         <label>Unidade</label>
                         <p:selectOneMenu id="unidade" value="#{produtosMB.prod.unidadeMedida}" style="width: 95%"
@@ -41,19 +41,19 @@
 
                         </p:selectOneMenu>
                     </div>
-                    
+
                     <div class="ui-g-2">
                         <label>Data Validade</label>
                         <p:calendar id="dataValidade" value="#{produtosMB.prod.dataValidade}" pattern="dd/MM/yyyy" locale="pt" 
                                     mask="99/99/9999" style="width: 95%;"/>
                     </div>
-                    
+
                     <div class="ui-g-2">
                         <label>Valor</label>
                         <p:inputText id="valor" value="#{produtosMB.prod.preco}" style="width: 95%;" 
                                      required="true" requiredMessage="Valor é Obrigatório"/>
                     </div>
-                    
+
                 </div>
 
                 <div align="center">  
