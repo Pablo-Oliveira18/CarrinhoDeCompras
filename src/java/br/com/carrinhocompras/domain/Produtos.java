@@ -11,6 +11,7 @@ public class Produtos {
     private String unidadeMedida;
     private Float preco;
     private Date dataValidade;
+    private int id = -1;
 
     public Produtos() {
     }
@@ -62,6 +63,15 @@ public class Produtos {
     public void setDataValidade(Date dataValidade) {
         this.dataValidade = dataValidade;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     
     
     
