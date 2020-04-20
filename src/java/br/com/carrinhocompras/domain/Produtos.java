@@ -11,7 +11,9 @@ public class Produtos {
     private String unidadeMedida;
     private Float preco;
     private Date dataValidade;
-    private int id = -1;
+    private int id ;
+    private int quantidadeAdicionada;
+    private float valorTotalDaCompra;
 
     public Produtos() {
     }
@@ -71,8 +73,23 @@ public class Produtos {
     public void setId(int id) {
         this.id = id;
     }
-    
-    
-    
+
+    public int getQuantidadeAdicionada() {
+        return quantidadeAdicionada;
+    }
+
+    public void setQuantidadeAdicionada(int quantidadeAdicionada) {
+        this.quantidadeAdicionada = quantidadeAdicionada;
+    }
+
+    public float getValorTotalDaCompra() {
+        return valorTotalDaCompra;
+    }
+
+    public void setValorTotalDaCompra(float valorTotalDaCompra) {
+        this.valorTotalDaCompra = valorTotalDaCompra;
+    }
+
+
     
 }

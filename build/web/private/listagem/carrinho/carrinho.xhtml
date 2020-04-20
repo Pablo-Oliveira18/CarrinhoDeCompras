@@ -2,16 +2,69 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     
     <ui:composition template="/private/template/template.xhtml">
 
         <ui:define name="conteudo">
-            
-            Carrinho de compras
-            
+            <p:panel id="panel" header="Carrinho" style="margin: 20px">
+
+                <p:dataTable id="dataTable" value="#{produtosMB.car}" var="carrinho" emptyMessage="Nenhum produto adicionado ao carrinho !" 
+                             style="margin: 10px;" paginator="true" paginatorPosition="bottom" rows="10">
+
+                    <p:column headerText="Código da Compra" width="40"> 
+                        <div align="center">
+                            <h:outputText value="#{carrinho.codigoCompra}"/>
+                        </div>
+                    </p:column>
+
+                    <p:column headerText="Descrição do Produto" width="300"> 
+                        <h:outputText value="#{carrinho.descricaoProd}"/>
+                    </p:column>
+
+                    <p:column headerText="Quantidade" width="40"> 
+                        <div align="center">
+                            <h:outputText value="#{carrinho.quantidade}"/>
+                        </div>
+                    </p:column>
+
+                    <p:column headerText="Valor Unitario" width="40"> 
+                        <div align="center">
+                            <h:outputText value="#{carrinho.preco}"/>
+                        </div>
+                    </p:column>
+                    
+                    <p:column headerText="Valor Total" width="30"> 
+                        <div align="center">
+                            <h:outputText value="#{carrinho.valorTotal}"/>
+                        </div>
+                    </p:column>
+
+                    <p:column headerText="Excluir" width="30" style="text-align: center">
+                        <p:commandButton action="#{produtosMB.removerCarrinho(carrinho)}" icon="ui-icon-trash" title="Excluir"
+                                         onclick="if (!confirm('Confirma a exclusão ?')) return false" update=":form:growl"/>  
+                    </p:column>
+                    
+                </p:dataTable>
+
+                <div align="center">  
+                    <p:dialog header="Forma de Pagamento" widgetVar="dlg2" modal="true" height="100" resizable="false"  width="300">
+                        <p:outputLabel value="Qual a Forma de pagamento desejada ?" /><br/><br/>
+                        
+                        <p:inputText placeholder="Digite a forma de pagamento"/>
+                        <p:commandButton value="Concluir" action="#{produtosMB.calcularTotal()}" update="growl"/>
+
+                    </p:dialog> 
+                    <p:commandButton value="Finalizar Compras" onclick="PF('dlg2').show();" update="growl"/>
+                </div>
+
+            </p:panel>
+
+
         </ui:define>
-        
+
     </ui:composition>
 </html>
 

@@ -16,7 +16,7 @@
                     
                     <p:column headerText="Código do Produto" width="40"> 
                         <div align="center">
-                            <h:outputText value="#{produto.codigoProduto}"/>
+                            <h:outputText value="#{produto.id}"/>
                         </div>
                     </p:column>
 
@@ -44,7 +44,7 @@
                         </div>
                     </p:column>
                     
-                    <p:column headerText="Valor" width="40"> 
+                    <p:column headerText="Valor Unitario" width="40"> 
                         <div align="center">
                             <h:outputText value="#{produto.preco}">
                                 <f:convertNumber minFractionDigits="2"/>
@@ -62,7 +62,13 @@
                     </p:column>
                     
                     <p:column headerText="Carrinho de Compras" width="50" style="text-align: center">
-                        <p:commandButton action="#{servicoMB.buscaDados(servico)}" icon="ui-icon-circle-plus" title="Adicionar Ao Carrinho"/>
+                        <p:dialog header="Adicionar ao carriho" widgetVar="dlg2" modal="true" height="100" resizable="false"  width="300">
+                            <h:outputText value="Qual quantidade deseja adicionar ?" /><br/><br/>
+                            <p:inputText id="qntde" value="#{produtosMB.prod.quantidadeAdicionada}" style="width: 95%;"/><br/><br/>
+                            <p:commandButton action="#{produtosMB.adicionarCarrinho(produto)}" icon="ui-icon-trash" title="Adicionar"
+                                             update="form:growl" value="Adicionar"/>
+                        </p:dialog> 
+                        <p:commandButton  icon="ui-icon-circle-plus" title="Adicionar Ao Carrinho" onclick="PF('dlg2').show();"/>
                     </p:column>
 
                 </p:dataTable>

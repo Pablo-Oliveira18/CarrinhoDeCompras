@@ -13,8 +13,8 @@
                 <div class="ui-g">
                     <div class="ui-g-1">
                         <label>Código</label>
-                        <p:inputText id="codProd" value="#{produtosMB.prod.codigoProduto}" style="width: 95%;"
-                                     required="true" requiredMessage="Código do Produto é obrigatório !"/>
+                        <p:inputText id="codProd" value="#{produtosMB.prod.id}" style="width: 95%;"
+                                     required="true" disabled="true" requiredMessage="Código do Produto é obrigatório !"/>
                     </div>
 
                     <div class="ui-g-4">
@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="ui-g-2">
-                        <label>Valor</label>
+                        <label>Valor Unitario</label>
                         <p:inputText id="valor" value="#{produtosMB.prod.preco}" style="width: 95%;" 
                                      required="true" requiredMessage="Valor é Obrigatório"/>
                     </div>
